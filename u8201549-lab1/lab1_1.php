@@ -10,7 +10,6 @@ $violations = $validator->validate('Bernhard', [
 ]);
 
 if (0 !== count($violations)) {
-    // there are errors, now you can show them
     foreach ($violations as $violation) {
         echo $violation->getMessage().'<br>';
     }
