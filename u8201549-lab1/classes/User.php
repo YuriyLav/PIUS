@@ -1,15 +1,17 @@
 <?php
 
+namespace lab1\classes;
+
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 class User
 {
-    protected DateTime $dateCreate;
+    protected \DateTime $dateCreate;
 
     public function __construct(protected int $id, protected string $name, protected string $email, protected string $password)
     {
-        $this->dateCreate = new DateTime();
+        $this->dateCreate = new \DateTime();
     }
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
@@ -59,11 +61,11 @@ class User
         return $this->password;
     }
 
-    public function getDateCreate() : DateTime
+    public function getDateCreate() : \DateTime
     {
         return $this->dateCreate;
     }
-    
+
     public function printUser()
     {
         echo "id: {$this->id} name: {$this->name} email: {$this->email} password: {$this->password}\n";
