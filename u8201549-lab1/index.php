@@ -1,7 +1,7 @@
 <?php
 
-require_once('classes/User.php');
-require_once('classes/Comment.php');
+namespace lab1\classes;
+
 require 'vendor/autoload.php';
 
 use Symfony\Component\Validator\Validation;
@@ -24,7 +24,7 @@ $users = [$user1, $user2, $user3, $user4, $user5, $user6];
 foreach ($users as $user) {
     $valide = (string) $validator->validate($user);
     if(empty($valide)){
-        echo "The user" . $user->getId() .  "is valid!\n";
+        echo "The user" . $user->getId() .  " is valid!\n";
     } else {
         echo $valide . "\n";
     } 
