@@ -1,22 +1,22 @@
 <?php
 
-namespace lab1\classes;
-
 require 'vendor/autoload.php';
 
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
+use lab1\User;
+use lab1\Comment;
 
 $validator = Validation::createValidatorBuilder()
     ->addMethodMapping('loadValidatorMetadata')
     ->getValidator();
 
-$user1= new User(16786776, 'Egor', 'egor@mail.ru', '43565657ghg');
+$user1 = new User(16786776, 'Egor', 'egor@mail.ru', '43565657ghg');
 $user2 = new User(2657678, 'Igor', 'igor@mail.ru', '187659jhyt');
-$user3= new User(7654667, 'Daniil', 'daniil@mail.ru', 'fdsgfdh567');
+$user3 = new User(7654667, 'Daniil', 'daniil@mail.ru', 'fdsgfdh567');
 $user4 = new User(45556732, 'Kirill', 'kirill@mail.ru', '767hhghk4857');
 
-//not valid users
+//not valid user
 $user5= new User(16786776, 'Nastya', 'nastya.ru', '5467225667');
 $user6 = new User(2657678, 'Maxim', 'max@mail.ru', '123');
 
@@ -41,16 +41,16 @@ $comments = [$comment1, $comment2, $comment3, $comment4, $comment5, $comment6];
 $dateTime = readline("Enter date in format 'd-m-Y H:i:s': ");
 
 $dateValidator = Validation::createValidator();
-$errors= $dateValidator->validate($dateTime,
-[new Assert\DateTime(),
-new Assert\NotBlank(),
+$errors = $dateValidator->validate($dateTime, [
+    new Assert\DateTime(), 
+    new Assert\NotBlank(),
 ]);
-    if(!empty($error)){
-        foreach ($errors as $error){
-            echo $error->getMessage() . "\n";
-        }
-    } else {
-        $dateTime = \DateTime::createFromFormat('d-m-Y H:i:s', $dateTime);
+if(!empty($error)){
+    foreach ($errors as $error){
+        echo $error->getMessage() . "\n";
+    }
+} else {
+    $dateTime = \DateTime::createFromFormat('d-m-Y H:i:s', $dateTime);
 }
 
 foreach ($comments as $comment) {

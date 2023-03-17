@@ -1,6 +1,6 @@
 <?php
 
-namespace lab1\classes;
+namespace lab1;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
@@ -41,7 +41,7 @@ class User
         );
     }
 
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -66,7 +66,7 @@ class User
         return $this->dateCreate;
     }
 
-    public function printUser()
+    public function printUser(): void
     {
         echo "id: {$this->id} name: {$this->name} email: {$this->email} password: {$this->password}\n";
     }

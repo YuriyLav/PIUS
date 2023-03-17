@@ -1,6 +1,6 @@
 <?php
 
-namespace lab1\classes;
+namespace lab1;
 
 class Comment
 {
@@ -18,7 +18,7 @@ class Comment
         return $this->message;
     }
 
-    function info(): void
+    public function info(): void
     {
         echo "id: {$this->user->getId()} name: {$this->user->getName()} email: {$this->user->getEmail()} password: {$this->user->getPassword()}\n" . "Message: $this->message;\n";
     }
