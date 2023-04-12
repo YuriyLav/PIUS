@@ -1,8 +1,11 @@
 <?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Validation;
-require_once __DIR__.'/vendor/autoload.php';
+
 $validator = Validation::createValidator();
 $violations = $validator->validate('Bernhard', [
     new Length(['min' => 10]),
